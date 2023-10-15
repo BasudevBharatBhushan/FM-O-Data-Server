@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
-const { dataApi } = require("../controllers/index");
+const { odataApi } = require("../controllers/index");
 
-router.post("/dataApi", dataApi);
+router.get("/odataApi/:fmServer/:database/:table", odataApi);
 
 module.exports = router;
