@@ -42,3 +42,78 @@ exports.queryRecord = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.postRecord = async (req, res) => {
+  const token = req.headers.authorization.split(" ")[1];
+
+  const { fmServer, database, table } = req.params;
+
+  const apiUrl = `https://${fmServer}/fmi/odata/v4/${database}/${table}`;
+
+  const headers = {
+    Authorization: `Basic ${token}`,
+  };
+
+  try {
+    const response = await axios.post(apiUrl, req.body, {
+      headers,
+      httpsAgent,
+    });
+
+    // console.log(response);
+    res.status(200).json(response.data);
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json(error);
+  }
+};
+
+exports.updateRecord = async (req, res) => {
+  const token = req.headers.authorization.split(" ")[1];
+
+  const { fmServer, database, table } = req.params;
+
+  const apiUrl = `https://${fmServer}/fmi/odata/v4/${database}/${table}`;
+
+  const headers = {
+    Authorization: `Basic ${token}`,
+  };
+
+  try {
+    const response = await axios.patch(apiUrl, req.body, {
+      headers,
+      httpsAgent,
+    });
+
+    // console.log(response);
+    res.status(200).json(response.data);
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json(error);
+  }
+};
+
+exports.deleteRecord = async (req, res) => {
+  const token = req.headers.authorization.split(" ")[1];
+
+  const { fmServer, database, table } = req.params;
+
+  const apiUrl = `https://${fmServer}/fmi/odata/v4/${database}/${table}`;
+
+  const headers = {
+    Authorization: `Basic ${token}`,
+  };
+
+  try {
+    const response = await axios.delete(apiUrl, {
+      headers,
+      httpsAgent,
+    });
+
+    // console.log(response);
+    res.status(200).json(response.data);
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json(error);
+  }
+};
