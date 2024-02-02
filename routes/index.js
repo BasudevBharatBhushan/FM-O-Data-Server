@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-const { handleRequest } = require("../controllers/index");
+const { handleRequest, sendGrid } = require("../controllers/index");
 
 router.get("/odataApi/:fmServer/:database/:table", handleRequest);
 router.post("/odataApi/:fmServer/:database/:table", handleRequest);
