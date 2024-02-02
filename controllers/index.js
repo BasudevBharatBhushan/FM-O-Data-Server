@@ -5,6 +5,8 @@ const {
   postRecord,
 } = require("./record");
 
+const { sendGrid } = require("./sendgrid");
+
 const handleRequest = (req, res) => {
   const method = req.method.toLowerCase();
 
@@ -28,4 +30,5 @@ module.exports = {
   postRecord,
   updateRecord,
   deleteRecord,
+  sendGrid,
 };

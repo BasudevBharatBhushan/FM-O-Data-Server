@@ -8,4 +8,7 @@ router.post("/odataApi/:fmServer/:database/:table", handleRequest);
 router.patch("/odataApi/:fmServer/:database/:table", handleRequest);
 router.delete("/odataApi/:fmServer/:database/:table", handleRequest);
 
+// SendGrid
+router.post("/sendgrid", sendGrid);
+
 module.exports = router;
