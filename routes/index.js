@@ -16,6 +16,9 @@ router.delete("/odataApi/:fmServer/:database/:table", handleRequest);
 router.post("/sendgrid", sendGrid);
 
 //ExecuteScript
-router.post("/executeScript/:fmServer/:database/:table", executeScript);
+router.post(
+  "/odataApi/executeScript/:fmServer/:database/:table",
+  executeScript
+);
 
 module.exports = router;
