@@ -5,6 +5,8 @@ const {
   postRecord,
 } = require("./record");
 
+const { executeScript } = require("./script");
+
 const { sendGrid } = require("./sendgrid");
 
 const handleRequest = (req, res) => {
@@ -31,4 +33,5 @@ module.exports = {
   updateRecord,
   deleteRecord,
   sendGrid,
+  executeScript,
 };
