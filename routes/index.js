@@ -5,7 +5,11 @@ const {
   handleRequest,
   sendGrid,
   executeScript,
+  getTableMetadata,
 } = require("../controllers/index");
+
+// Get Table Metadata
+router.get("/odataApi/:fmServer/:database/\\$metadata", getTableMetadata);
 
 router.get("/odataApi/:fmServer/:database/:table", handleRequest);
 router.post("/odataApi/:fmServer/:database/:table", handleRequest);

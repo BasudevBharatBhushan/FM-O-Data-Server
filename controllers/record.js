@@ -117,3 +117,29 @@ exports.deleteRecord = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.getTableMetadata = async (req, res) => {
+  console.log("getTableMetadata called");
+  const token = req.headers.authorization.split(" ")[1];
+
+  const { fmServer, database } = req.params;
+
+  const apiUrl = `https://${fmServer}/fmi/odata/v4/${database}/$metadata`;
+
+  const headers = {
+    Authorization: `Basic ${token}`,
+  };
+
+  try {
+    const response = await axios.get(apiUrl, {
+      headers,
+      // httpsAgent,
+    });
+
+    // console.log(response);
+    res.status(200).json(response.data);
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json(error);
+  }
+};

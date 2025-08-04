@@ -3,6 +3,7 @@ const {
   updateRecord,
   deleteRecord,
   postRecord,
+  getTableMetadata,
 } = require("./record");
 
 const { executeScript } = require("./script");
@@ -34,4 +35,5 @@ module.exports = {
   deleteRecord,
   sendGrid,
   executeScript,
+  getTableMetadata,
 };
